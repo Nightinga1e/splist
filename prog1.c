@@ -13,9 +13,18 @@ int AddEl(List **head, int val){
 		tmp->next = NULL;
 		(*head) = tmp;
 	}else{
+//		tmp->ind = val;
+//		tmp->next = *head;
+//		*head = tmp;
+		List *tmp1;
+		tmp1 = *head;
 		tmp->ind = val;
-		tmp->next = *head;
-		*head = tmp;
+		tmp->next =NULL;
+		while(tmp1->next!=NULL){
+			tmp1=tmp1->next;
+		}
+		tmp1->next = tmp;
+		
 	}
 	
 	return 0;
@@ -85,6 +94,7 @@ int main(){
 				Output(head);
 				break;
 			case 4: 
+				printf("\nBye!\n");
 				break;
 			default:
 				printf("\nWrong menu item\n");
